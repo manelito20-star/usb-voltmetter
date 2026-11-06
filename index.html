@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltímetro USB & Testador de Carga - Medição de Potência em Tempo Real</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-900">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                    <i data-lucide="zap" class="w-6 h-6 text-slate-950 stroke-[2.5]"></i>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+                    Voltímetro USB
+                </span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-400">
+                <a href="#funcionalidades" class="hover:text-cyan-400 transition-colors">Funcionalidades</a>
+                <a href="#benchmark" class="hover:text-cyan-400 transition-colors">Benchmark</a>
+                <a href="#tecnologia" class="hover:text-cyan-400 transition-colors">Tecnologia</a>
+                <a href="#captura" class="hover:text-cyan-400 transition-colors">Screenshot</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <!-- Botão Download Cyan no Header -->
+                <a href="https://github.com/manelito20-star/usb-voltmetter/releases/download/v1.0/usb.voltmetter.apk" class="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-cyan-500/20 transition-all text-sm">
+                    <i data-lucide="download" class="w-4 h-4 stroke-[2.5]"></i>
+                    <span>Download APK</span>
+                </a>
+                
+                <a href="https://github.com/manelito20-star/usb-voltmetter" target="_blank" class="hidden sm:flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-4 py-2.5 rounded-xl border border-slate-800 transition-all text-sm">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-36 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold tracking-wide uppercase mb-8">
+                <i data-lucide="activity" class="w-3.5 h-3.5"></i> Medição em Tempo Real (Watts, Volts & Amperes)
+            </div>
+            
+            <h1 class="text-4xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 max-w-4xl mx-auto">
+                Descobre qual é o carregador e a porta USB mais rápida.
+            </h1>
+            
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
+                Mede a potência exata que o teu telefone está a receber, elimina o ruído elétrico com o filtro EMA e compara portas USB com testes automáticos.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://github.com/manelito20-star/usb-voltmetter/releases/download/v1.0/usb.voltmetter.apk" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5">
+                    <i data-lucide="download" class="w-5 h-5 stroke-[2.5]"></i>
+                    <span>Descarregar APK v1.0</span>
+                </a>
+                <a href="#captura" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-200 font-semibold px-8 py-4 rounded-xl border border-slate-800 transition-all">
+                    <span>Ver Screenshot</span>
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Stats / Highlights -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-20 pt-10 border-t border-slate-900 text-left">
+                <div>
+                    <div class="text-3xl font-extrabold text-white mb-1">EMA</div>
+                    <div class="text-xs text-slate-400 font-medium">Leitura Estável sem Ruído</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-extrabold text-white mb-1">10s</div>
+                    <div class="text-xs text-slate-400 font-medium">Benchmark de Portas USB</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-extrabold text-white mb-1">Smart</div>
+                    <div class="text-xs text-slate-400 font-medium">Classificação de Carga</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-extrabold text-cyan-400 mb-1">100%</div>
+                    <div class="text-xs text-slate-400 font-medium">Tempo Restante Dinâmico</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="funcionalidades" class="py-24 bg-slate-900/40 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-cyan-400 text-sm font-bold tracking-wider uppercase mb-3">Funcionalidades Principais</h2>
+                <p class="text-3xl md:text-4xl font-bold text-white tracking-tight">Tudo o que precisas para analisar a energia do teu telemóvel.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 text-cyan-400">
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Leitura Estável (Filtro EMA)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Mede Tensão (V), Corrente (mA/A) e Potência (W) em tempo real. Aplica média móvel exponencial para eliminar saltos bruscos e avaliar a pureza do sinal.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 text-blue-400">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Classificação de Velocidade</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Identifica automaticamente se estás perante Carga Rápida (>12W), Carga Normal, Carga Lenta ou estado de descarregamento com cores intuitivas.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6 text-indigo-400">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Diagnóstico & Bateria</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Monitoriza a temperatura do telemóvel, estado de saúde geral da bateria e calcula de forma dinâmica o tempo estimado até atingir os 100%.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benchmark Section -->
+    <section id="benchmark" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="p-10 md:p-16 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-cyan-950/30 border border-slate-800 flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1 space-y-6">
+                    <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+                        Ferramenta Exclusiva
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                        Benchmark Automatizado de 10 Segundos
+                    </h2>
+                    <p class="text-slate-400 leading-relaxed">
+                        Queres descobrir qual é a melhor porta USB do teu automóvel ou o melhor carregador lá de casa? Testa o desempenho durante 10 segundos e deixa que a aplicação declare automaticamente a vencedora com cálculo exato de ganho de velocidade.
+                    </p>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400"></i>
+                            Compara Porta A vs. Porta B de forma científica.
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400"></i>
+                            Avaliação de estabilidade e potência média em direto.
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-80 p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-4 text-center">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center mx-auto mb-2">
+                        <i data-lucide="gauge" class="w-6 h-6"></i>
+                    </div>
+                    <div class="font-bold text-white">Teste de Portas USB</div>
+                    <div class="text-xs text-slate-400">Análise de 10 segundos concluída com sucesso. Porta vencedora identificada!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section id="tecnologia" class="py-20 border-t border-slate-900 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-8">Construído com tecnologia moderna Android</h2>
+            <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 font-semibold text-slate-300 text-sm">
+                <span class="flex items-center gap-2"><i data-lucide="code-2" class="w-4 h-4 text-cyan-400"></i> Kotlin</span>
+                <span class="flex items-center gap-2"><i data-lucide="layout-grid" class="w-4 h-4 text-cyan-400"></i> Jetpack Compose (Material 3)</span>
+                <span class="flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i> MVVM & StateFlow</span>
+                <span class="flex items-center gap-2"><i data-lucide="battery-charging" class="w-4 h-4 text-cyan-400"></i> BatteryManager APIs</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshot Section -->
+    <section id="captura" class="py-24 border-t border-slate-900 bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-cyan-400 text-sm font-bold tracking-wider uppercase mb-3">Interface da Aplicação</h2>
+                <p class="text-3xl md:text-4xl font-bold text-white tracking-tight">Conhece o Voltímetro USB em Ação</p>
+            </div>
+
+            <div class="max-w-md mx-auto">
+                <div class="group relative overflow-hidden rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl transition-all duration-300 hover:border-cyan-500/50">
+                    <img src="https://raw.githubusercontent.com/manelito20-star/usb-voltmetter/main/1.jpeg" alt="Screenshot Voltímetro USB" class="w-full h-auto object-cover rounded-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-900 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p>© Voltímetro USB & Testador de Carga — Gestão Energética Inteligente</p>
+            <p>Projeto de código aberto sob licença de testes e desenvolvimento.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
